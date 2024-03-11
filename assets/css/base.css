@@ -1,0 +1,230 @@
+:root{
+    --white--color:#fff;
+    --black--color: #000;
+    --text-color: #333333;
+    --primary-color:rgb(19, 129, 254);
+    --border-color:#dbdbdb; 
+    --color2:rgba(19, 129, 254,0.1);
+    --star-vote-color:yellow;
+    --ribbon-color:#ff5500;
+    --header-height:120px;
+    --navbar-height:37px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height))
+}
+*{
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+.grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.grid__full-width{
+    width: 100%;
+}
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/* TEST */
+
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+
+}
+
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width:83.3334%;
+}
+
+
+
+/* animation */
+@keyframes hiendan {
+    0% {
+            opacity: 0;
+    }
+    100% {
+            opacity: 1;
+    }
+}
+@keyframes growth{
+    0% {
+        transform: scale(var(--growth-from));
+    }
+    100% {
+        transform: scale(var(--growth-to));
+
+    }
+}
+@keyframes headernotifyzoom{
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal{
+    position: fixed;
+    top: 0;right: 0;bottom: 0;left: 0;
+    display: flex;
+    animation: hiendan linear .2s;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body{
+    --growth-from:0.6;
+    --growth-to:1;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    animation: growth linear .2s;
+}
+/* Button */
+.btn{
+    min-width: 125px;
+    height: 36px;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    padding: 0;
+    margin-left: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.4rem;
+}
+.btn.btn--back:hover     {
+     background-color:rgba(0,0,0,0.1); 
+}
+
+.btn.btn--primary{
+    color: var(--white--color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--disabled{
+    cursor: default;
+    background-color: darkgrey;
+}
+.select-input{
+    position: relative;
+    min-width: 170px;
+    height: 34px;
+    background-color: var(--white--color);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+.select-input__lable{
+    font-size: 1.4rem;
+    cursor:default;
+}
+.select-input__icon{
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+.select-input__list{
+    position: absolute;
+    left: 0;right: 0;
+    top: 26px;
+    background-color: var(--white--color);
+    list-style: none;
+    display: block;
+    padding: 10px 12px;
+    border-radius: 3px;
+    box-shadow:  0 5px 5px #b3b2b2;
+    display: none;
+    animation:hiendan ease-in 0.25s;
+    z-index: 1;
+}
+.select-input__list::before{
+    content:"" ;
+    position: absolute;
+    display: block;
+    height: 10px;
+    width: 100%;
+    top:-4px;
+    left: 0;
+}
+.select-input__link{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 5px 0;
+}
+.select-input__link:hover{
+    color: var(--primary-color);
+    font-size: 1.47rem;
+}
+.select-input:hover .select-input__list{
+    display: block;
+}
+
+/* pagination */
+.pagination{
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+}
+.pagination-item{
+    margin-right: 18px;
+
+}
+.pagination-item-active .pagination-item-link{
+    background-color: var(--primary-color);
+    color: var(--white--color);
+    text-align: center;
+}
+.pagination-item-active .pagination-item-link:hover{
+    opacity: 0.9;
+}
+.pagination-item-link{
+    display: block;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #8f8d8d;
+    min-width: 42px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 3px;
+}
+.pagination-item-icon{
+
+}
